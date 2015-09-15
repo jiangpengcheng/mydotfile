@@ -1,11 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/rajame/.oh-my-zsh
+export ZSH=/home/raja/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sonicradish"
+ZSH_THEME="risto"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,11 +45,11 @@ ZSH_THEME="sonicradish"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git capistrano ember-cli gem autojump ruby rbenv textmate rails tmux brew bundler rake)
+plugins=(ubuntu git capistrano ember-cli gem autojump ruby rbenv textmate rails tmux brew bundler rake nvm tmuxinator)
 
 # User configuration
 
-export PATH="/home/rajame/git/nvm/versions/node/v0.12.2/bin:/usr/local/heroku/bin:/home/rajame/.rbenv/shims:/home/rajame/.rbenv/shims:/home/rajame/.rbenv/bin:/home/rajame/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/rajame/java/jdk/bin:/home/rajame/java/jdk/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/rajame/bin:/home/rajame/.rvm/bin:/home/rajame/java/android/android-sdk-linux/tools:/home/rajame/go/bin"
+export PATH="/home/raja/git/nvm/versions/node/v0.12.2/bin:/usr/local/heroku/bin:/home/raja/.rbenv/shims:/home/raja/.rbenv/shims:/home/raja/.rbenv/bin:/home/raja/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/java/jdk/bin:/home/raja/java/jdk/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/bin:/home/raja/.rvm/bin:/home/raja/java/android/android-sdk-linux/tools:/home/raja/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -80,7 +80,7 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.bin/tmuxinator.zsh
+#source ~/.bin/tmuxinator.zsh
 export DISABLE_AUTO_TITLE=true
 export TERM="screen-256color"
 alias tmux="tmux -2"
@@ -104,4 +104,6 @@ bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
 
 export PATH="/usr/local/heroku/bin:$PATH"
-source ~/git/nvm/nvm.sh
+source ~/.nvm/nvm.sh
+alias clang++=clang++ -std=c++11 -stdlib=libc++ -Werror -Weverything -Wno-disabled-macro-expansion -Wno-float-equal -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-padded -Wno-old-style-cast -lc++ -lc++abi
+alias to-deploy='ssh deploy@192.30.139.221'
