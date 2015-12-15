@@ -49,8 +49,10 @@ plugins=(ubuntu git capistrano ember-cli gem autojump ruby rbenv textmate rails 
 
 # User configuration
 
-export PATH="/home/raja/git/nvm/versions/node/v0.12.2/bin:/usr/local/heroku/bin:/home/raja/.rbenv/shims:/home/raja/.rbenv/shims:/home/raja/.rbenv/bin:/home/raja/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/java/jdk/bin:/home/raja/java/jdk/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/bin:/home/raja/.rvm/bin:/home/raja/java/android/android-sdk-linux/tools:/home/raja/go/bin"
+#export PATH="/home/raja/.rbenv/shims:/home/raja/.rbenv/shims:/home/raja/.rbenv/bin:/home/raja/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/java/jdk/bin:/home/raja/java/jdk/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/raja/bin:/home/raja/.rvm/bin:/home/raja/java/android/android-sdk-linux/tools:/home/raja/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+#export PATH="$PATH:/home/raja/.rbenv/shims:/home/raja/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +87,16 @@ export DISABLE_AUTO_TITLE=true
 export TERM="screen-256color"
 alias tmux="tmux -2"
 alias cls="clear"
+setxkbmap -option ctrl:nocaps
+
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
+
+#export PATH="/usr/local/heroku/bin:$PATH"
+source ~/.nvm/nvm.sh
+alias clang++=clang++ -std=c++11 -stdlib=libc++ -Werror -Weverything -Wno-disabled-macro-expansion -Wno-float-equal -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-padded -Wno-old-style-cast -lc++ -lc++abi
+alias to-deploy='ssh deploy@192.30.139.221'
 
 tmux_init()
 {
@@ -97,13 +109,24 @@ tmux_init()
 if which tmux 2>&1 >/dev/null; then
     test -z "$TMUX" && (tmux attach || tmux_init)
 fi
+export PATH="/home/raja/mysoft/webrtc-build-scripts/depot_tools:$PATH"
 
-setxkbmap -option ctrl:nocaps
-bindkey -v
-bindkey -M viins 'jj' vi-cmd-mode
-bindkey '^R' history-incremental-search-backward
 
-export PATH="/usr/local/heroku/bin:$PATH"
+# JDK
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASS_PATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:$PATH
+
+# Android SDK
+export ANDROID_SDK=/home/raja/mysoft/Android/Sdk
+export PATH=${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools:$PATH
+
+# Android NDK
+export ANDROID_NDK=/home/raja/mysoft/Android/ndk
+export PATH=${ANDROID_NDK}:$PATH
+
+
+export PATH="$PATH:~/mysoft/eclipse/eclipse"
 source ~/.nvm/nvm.sh
-alias clang++=clang++ -std=c++11 -stdlib=libc++ -Werror -Weverything -Wno-disabled-macro-expansion -Wno-float-equal -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-global-constructors -Wno-exit-time-destructors -Wno-missing-prototypes -Wno-padded -Wno-old-style-cast -lc++ -lc++abi
-alias to-deploy='ssh deploy@192.30.139.221'
+export STUDIO_JDK=/usr/lib/jvm/java-8-oracle

@@ -126,3 +126,5 @@ export EDITOR='vim'
 export PATH="/usr/local/heroku/bin:$PATH"
 source ~/git/nvm/nvm.sh
 alias cls=clear
+
+setxkbmap -option ctrl:nocaps
